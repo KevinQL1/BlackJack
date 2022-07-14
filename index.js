@@ -29,7 +29,6 @@ const randArray = () => {
 const newGame = () => {
   Location.reload();
 };
-
 function renderCards() {
   let scoreTotal = 0;
   let prizeTotal = 0;
