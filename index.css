@@ -1,4 +1,4 @@
-*{
+* {
     margin: 0;
     padding: 0;
 }
@@ -33,12 +33,12 @@ h1 {
     font-weight: 100;
 }
 
-table{
+table {
     margin: auto;
     padding-bottom: 1rem;
 }
 
-th{
+th {
     padding: 0 2rem 0 2rem;
 }
 

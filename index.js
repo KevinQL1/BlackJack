@@ -26,43 +26,43 @@ const randArray = () => {
   return rValue;
 };
 
-const newGame = () =>{
-    Location.reload()
-}
+const newGame = () => {
+  Location.reload();
+};
 
 function renderCards() {
-  let scoreTotal = 0
-  let prizeTotal = 0
+  let scoreTotal = 0;
+  let prizeTotal = 0;
   tbody.innerHTML = "";
   randArray();
   cardsNew.map((cardNew) => {
-  const tr = document.createElement("tr");
-  tr.classList.add("cardNew");
-  scoreTotal = scoreTotal + cardNew.score
-  prizeTotal = prizeTotal + cardNew.prize
-  if (scoreTotal == 21) {
-    drawButton.style.visibility = "hidden"
-    const total = prizeTotal + 1000
-    swal.fire({
-        icon: 'success',
+    const tr = document.createElement("tr");
+    tr.classList.add("cardNew");
+    scoreTotal = scoreTotal + cardNew.score;
+    prizeTotal = prizeTotal + cardNew.prize;
+    if (scoreTotal == 21) {
+      drawButton.style.visibility = "hidden";
+      const total = prizeTotal + 1000;
+      swal.fire({
+        icon: "success",
         title: "You win: $" + total,
-        text: 'Por ser un feliz ganador se te otorga $1000 más'
-    })
-  } else if (scoreTotal < 21) {
-    swal.fire({
-        icon: 'info',
+        text: "Por ser un feliz ganador se te otorga $1000 más",
+      });
+    } else if (scoreTotal < 21) {
+      swal.fire({
+        icon: "info",
         title: "PUJA MÁS, vas ganando: $" + prizeTotal,
-        timer: 5000
-    })
-  }else {
-    drawButton.style.visibility = "hidden"
-    swal.fire({
-        icon: 'error',
+        timer: 5000,
+      });
+    } else {
+      drawButton.style.visibility = "hidden";
+      swal.fire({
+        icon: "error",
         title: "lost: $" + prizeTotal,
-        timer: 5000
-    })
+        timer: 5000,
+      });
     }
-  const Content = `
+    const Content = `
    <tr>
        <th>${cardNew.card}</th>
        <th>${scoreTotal}</th>
