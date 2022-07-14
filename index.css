@@ -1,0 +1,55 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: casino;
+    font-weight: 100;
+    background-image: url(images/poker-table-background-green-color_47243-1068.jpg);
+    background-size: cover;
+    text-align: center;
+    color: whitesmoke;
+    font-weight: bold;
+    display: block;
+    margin-top: 15rem;
+    text-align: center;
+    align-items: center;
+}
+
+h1 {
+    color: gold;
+}
+
+#message1 {
+    color: #ed2939;
+    margin-top: 1rem;
+}
+
+@font-face {
+    font-family: 'casino';
+    src: url(fonts/casino.3d-italic.ttf);
+    font-style: normal;
+    font-weight: 100;
+}
+
+table{
+    margin: auto;
+    padding-bottom: 1rem;
+}
+
+th{
+    padding: 0 2rem 0 2rem;
+}
+
+button {
+    color: black;
+    width: 100px;
+    background-color: #016f30;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-weight: bold;
+    border-radius: 10px;
+    border-color: #ed2939;
+    margin-top: 1rem;
+}
