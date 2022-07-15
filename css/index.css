@@ -6,13 +6,13 @@
 body {
     font-family: casino;
     font-weight: 100;
-    background-image: url(images/poker-table-background-green-color_47243-1068.jpg);
+    background-image: url(/images/poker-table-background-green-color_47243-1068.jpg);
     background-size: cover;
     text-align: center;
     color: whitesmoke;
     font-weight: bold;
     display: block;
-    margin-top: 15rem;
+    margin-top: 5rem;
     text-align: center;
     align-items: center;
 }
@@ -28,7 +28,7 @@ h1 {
 
 @font-face {
     font-family: 'casino';
-    src: url(fonts/casino.3d-italic.ttf);
+    src: url(/fonts/casino.3d-italic.ttf);
     font-style: normal;
     font-weight: 100;
 }

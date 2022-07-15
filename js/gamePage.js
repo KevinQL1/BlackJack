@@ -16,8 +16,39 @@ const cards = [
 const cardsNew = [];
 const tbody = document.getElementById("cardsList");
 const drawButton = document.getElementById("drawButton");
+const newGamebutton = document.getElementById("newGamebutton");
+const person = document.getElementById("name");
 
 drawButton.addEventListener("click", renderCards);
+newGamebutton.addEventListener("click", newGame);
+
+function newGame() {
+  swal
+    .fire({
+      title: "Ingrese su nombre por favor",
+      input: "text",
+      confirmButtonText: "OK",
+    })
+    .then(async (result) => {
+      if (result.value != "") {
+        await Swal.fire({
+          title: `Hola ${result.value}`,
+          timer: 2000,
+          timerProgressBar: true,
+          showConfirmButton: false,
+        });
+        person.innerHTML = `Hola ${result.value}`;
+      } else if (result.value == "") {
+        Swal.fire({
+          icon: "error",
+          title: "Ingrese un nombre porfavor",
+          showConfirmButton: false,
+          timer: 2000,
+          timerProgressBar: true,
+        });
+      }
+    });
+}
 
 const randArray = () => {
   const rand = Math.floor(Math.random() * cards.length);
@@ -25,6 +56,14 @@ const randArray = () => {
   cardsNew.push(rValue);
   return rValue;
 };
+
+const cargar = () => {
+  for (let i = 0; i < 2; i++) {
+    renderCards();
+  }
+};
+
+window.onload = cargar;
 
 function renderCards() {
   let scoreTotal = 0;
@@ -43,30 +82,36 @@ function renderCards() {
         icon: "success",
         title: "You win: $" + total,
         text: "Por ser un feliz ganador se te otorga $1000 más",
+        timer: 5000,
+        timerProgressBar: true,
+        showConfirmButton: false,
       });
     } else if (scoreTotal < 21) {
       swal.fire({
         icon: "info",
         title: "PUJA MÁS, vas ganando: $" + prizeTotal,
-        timer: 5000,
+        timer: 2000,
+        timerProgressBar: true,
+        showConfirmButton: false,
       });
     } else {
       drawButton.style.visibility = "hidden";
       swal.fire({
         icon: "error",
         title: "lost: $" + prizeTotal,
-        timer: 5000,
+        timer: 2000,
+        timerProgressBar: true,
+        showConfirmButton: false,
       });
     }
     const Content = `
-   <tr>
-       <th>${cardNew.card}</th>
-       <th>${scoreTotal}</th>
-       <th>${prizeTotal}</th>
-   </tr>      
-        `;
+     <tr>
+         <th>${cardNew.card}</th>
+         <th>${scoreTotal}</th>
+         <th>${prizeTotal}</th>
+     </tr>      
+          `;
     tr.innerHTML = Content;
     tbody.append(tr);
-    console.log(cardNew);
   });
 }
